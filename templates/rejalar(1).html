@@ -1,0 +1,304 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Liderlar - News Post</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Course Project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link href="{% static 'plugins/fontawesome-free-5.0.1/css/fontawesome-all.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/news_post_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/news_post_responsive.css' %}">
+</head>
+<body>
+
+<div class="super_container">
+
+	<!-- Header -->
+
+	<header class="header d-flex flex-row">
+		<div class="header_content d-flex flex-row align-items-center">
+			<!-- Logo -->
+			<div class="logo_container">
+				<div class="logo">
+					<img src="{% static 'images/logo.png' %}" alt="">
+					<span>Liderlar</span>
+				</div>
+			</div>
+
+			<!-- Main Navigation -->
+			<nav class="main_nav_container">
+				<div class="main_nav">
+					<ul class="main_nav_list">
+						<li class="main_nav_item"><a href="{% url 'index' %}">Asosiy sahifa</a></li>
+						<li class="main_nav_item"><a href="{% url 'bizhaqimizda' %}">bizhaqimizda</a></li>
+
+						<li class="main_nav_item"><a href="{% url 'yangiliklar' %}">yangiliklar</a></li>
+						<li class="main_nav_item"><a href="{% url 'aloqa' %}">Aloqa</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div class="header_side d-flex flex-row justify-content-center align-items-center">
+			<img src="{% static 'images/phone-call.svg' %}" alt="">
+			<span>+998 99 433 30 26</span>
+		</div>
+
+		<!-- Hamburger -->
+		<div class="hamburger_container">
+			<i class="fas fa-bars trans_200"></i>
+		</div>
+
+	</header>
+	
+	<!-- Menu -->
+	<div class="menu_container menu_mm">
+
+		<!-- Menu Close Button -->
+		<div class="menu_close_container">
+			<div class="menu_close"></div>
+		</div>
+
+		<!-- Menu Items -->
+		<div class="menu_inner menu_mm">
+			<div class="menu menu_mm">
+				<ul class="menu_list menu_mm">
+					<li class="menu_item menu_mm"><a href="{% url 'index' %}">Asosiy sahifa</a></li>
+					<li class="menu_item menu_mm"><a href="{% url 'bizhaqimizda' %}">Biz haqimizda</a></li>
+					<li class="menu_item menu_mm"><a href="{% url 'yangiliklar' %}">Yangiliklar</a></li>
+					<li class="menu_item menu_mm"><a href="{% url 'aloqa' %}">Aloqa</a></li>
+				</ul>
+
+				<!-- Menu Social -->
+				
+				<div class="menu_social_container menu_mm">
+					<ul class="menu_social menu_mm">
+						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-instagram"></i></a></li>
+						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-twitter"></i></a></li>
+					</ul>
+				</div>
+
+				<div class="menu_copyright menu_mm"></div>
+			</div>
+
+		</div>
+
+	</div>
+	
+	<!-- Home -->
+
+	<div class="home">
+		<div class="home_background_container prlx_parent">
+			<div class="home_background prlx" style="background-image:url({% static 'images/news_background.jpg' %})"></div>
+		</div>
+		<div class="home_content">
+			<h1>Rejalar</h1>
+		</div>
+	</div>
+
+	<!-- News -->
+
+	<div class="news">
+		<div class="container">
+			<div class="row">
+				
+				<!-- News Post Column -->
+
+				<div class="col-lg-8">
+					
+					<div class="news_post_container">
+						<!-- News Post -->
+						<style>
+							#n{
+								color: #000000;
+							}
+						</style>
+						<div class="news_post">
+							<div class="news_post_image">
+								<img src="{{reja.rasm.url}}" alt="https://unsplash.com/@dsmacinnes">
+							</div>
+							<div class="news_post_top d-flex flex-column flex-sm-row">
+								<div class="news_post_date_container">
+									<div class="news_post_date d-flex flex-column align-items-center justify-content-center">
+										<div>18</div>
+										<div>dec</div>
+									</div>
+								</div>
+								<div class="news_post_title_container">
+									<div class="news_post_title">
+										<a id="n">{{reja.nomi}}</a>
+									</div>
+									
+								</div>
+							</div>
+							<div class="news_post_text">
+								<p>{{reja.izox}}</p>
+							</div>
+
+							
+							
+						</div>
+
+					</div>
+					
+
+				</div>
+
+				<!-- Sidebar Column -->
+
+				<div class="col-lg-4">
+					<div class="sidebar">
+
+						
+
+						<!-- Latest Posts -->
+
+						<div class="sidebar_section">
+							<div class="sidebar_section_title">
+                                
+							</div>
+
+							<div class="latest_posts">
+								
+								<!-- Latest Post -->
+								{% for reja in rejalari %}
+								<div class="latest_post">
+									<div class="latest_post_image">
+										<img src="{{reja.rasm.url}}" alt="https://unsplash.com/@dsmacinnes">
+									</div>
+									<div class="latest_post_title"><a href="{% url 'rejalar' reja.pk %}">{{yangilik.nomi}}</a></div>
+									<div>{{ reja.izox}}</div>
+								</div>
+								{% endfor %}
+
+							</div>
+
+						</div>
+
+						
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+
+	<footer class="footer">
+		<div class="container">
+			
+			
+
+			<!-- Footer Content -->
+
+			<div class="footer_content">
+				<div class="row">
+
+					<!-- Footer Column - About -->
+					<div class="col-lg-3 footer_col">
+
+						<!-- Logo -->
+						<div class="logo_container">
+							<div class="logo">
+								<img src="{% static 'images/logo.png' %}" alt="">
+								<span>Liderlar</span>
+							</div>
+						</div>
+
+						<p class="footer_about_text">hyfghurehfh erfuyerh uger tughrt gkr iiehgiekig heriob eoher goenvlo eahgoehoder,knrv rgetoe.</p>
+
+					</div>
+
+					<!-- Footer Column - Menu -->
+
+					<div class="col-lg-3 footer_col">
+						<div class="footer_column_title">Menu</div>
+						<div class="footer_column_content">
+							<ul>
+								<li class="footer_list_item"><a href="{% url 'index' %}">Bosh sahifa</a></li>
+								<li class="footer_list_item"><a href="{% url 'bizhaqimizda' %}">Biz haqimizda</a></li>
+								
+								<li class="footer_list_item"><a href="{% url 'yangiliklar' %}">Yangiliklar</a></li>
+								<li class="footer_list_item"><a href="{% url 'aloqa' %}">Aloqa</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Footer Column - Usefull Links -->
+
+					
+
+					<!-- Footer Column - Contact -->
+
+					<div class="col-lg-3 footer_col">
+						<div class="footer_column_title">Aloqa
+						</div>
+						<div class="footer_column_content">
+							<ul>
+								<li class="footer_contact_item">
+									<div class="footer_contact_icon">
+										<img src="{% static 'images/placeholder.svg' %}" alt="https://www.flaticon.com/authors/lucy-g">
+									</div>
+									poytug
+								</li>
+								<li class="footer_contact_item">
+									<div class="footer_contact_icon">
+										<img src="{% static 'images/smartphone.svg' %}" alt="https://www.flaticon.com/authors/lucy-g">
+									</div>
+									+998 99 433 30 26
+								</li>
+								<li class="footer_contact_item">
+									<div class="footer_contact_icon">
+										<img src="{% static 'images/envelope.svg' %}" alt="https://www.flaticon.com/authors/lucy-g">
+									</div>liderlar@mail.ru
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- Footer Copyright -->
+			<style>
+				#a{
+	
+					color: #ffffff;
+				}
+				</style>
+	
+	<div class="footer_bar d-flex flex-column flex-sm-row align-items-center">
+		<div class="footer_copyright">
+			<span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+ &copy;<script>document.write(new Date().getFullYear());</script>  Ushbu web sayt <i  aria-hidden="true"></i>  <a href="https://https://t.me/milliycoin" target="_blank">Algorithm Gateway </a>   tomonidan dizaynlashtrilgan <i  aria-hidden="true"></i>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
+		</div>
+		
+		
+	</div>
+
+		</div>
+	</footer>
+
+</div>
+
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
+<script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+<script src="{% static 'plugins/scrollTo/jquery.scrollTo.min.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'js/news_post_custom.js' %}"></script>
+
+</body>
+</html>

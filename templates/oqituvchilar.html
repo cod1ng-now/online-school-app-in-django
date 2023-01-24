@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/teachers_styles.css' %}">
+<link rel="icon" href="{% static 'images/lo.png'%}" >
+<link rel="stylesheet" type="text/css" href="{% static 'styles/teachers_responsive.css' %}">
+
+	<!-- Home -->
+
+	<div class="home">
+		<div class="home_background_container prlx_parent">
+			<div class="home_background prlx" style="background-image:url({% static 'images/teachers_background.jpg' %})"></div>
+		</div>
+		<div class="home_content">
+			<h1>Tarbiyachilar</h1>
+		</div>
+	</div>
+
+	<!-- Teachers -->
+
+	<div class="teachers page_section">
+		<div class="container">
+			<div class="row">
+				<style>
+					#bogcha{
+						color: black;
+					}
+				</style>
+				<!-- Teacher -->
+				{% for bogchaoqituvchi in bogchaoqituvchilari %}
+				<div class="col-lg-4 teacher">
+					<div class="card">
+						
+						<div class="card_img">
+							<div ><a></a></div>
+							<img class="card-img-top trans_200" src="images/telephone.svg" alt="https://unsplash.com/@michaeldam">
+						</div>
+						<div class="card-body text-center">
+							<div class="card-title"><a id="bogcha">;rlija;klrjrgf;aklrerg;ajr</a></div>
+							<div class="card-text">szdjizs d;zsdhf;lszdhf zsd;dfihzs;lddfh sdf;g zsdfg;ihasfdg</div>
+							
+							
+							<div class="teacher_social">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			
+			</div>
+		</div>
+	</div>
+
+	
+
+
+
+	<!-- Become -->
+
+
+	<script type="module">
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'js/teachers_custom.js' %}"></script>
+{% endblock content %}

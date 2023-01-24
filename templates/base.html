@@ -1,0 +1,230 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Liderlar</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Course Project">
+<link rel="icon" href="{% static 'images/lo.png'%}" >
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link href="{% static 'plugins/fontawesome-free-5.0.1/css/fontawesome-all.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css'%}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css'%}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+
+
+</head>
+<body>
+
+    <div class="super_container">
+
+        <!-- Header -->
+
+        <header class="header d-flex flex-row">
+            <div class="header_content d-flex flex-row align-items-center">
+                <!-- Logo -->
+                <div class="logo_container">
+                    <div class="logo">
+                        <img src="{% static '../static/images/logo.png' %}" alt="">
+                        <span>30-maktab</span>
+                    </div>
+                </div>
+
+                <!-- Main Navigation -->
+                <nav class="main_nav_container">
+                    <div class="main_nav">
+                        <ul class="main_nav_list">
+                            <li class="main_nav_item"><a href="{% url 'index' %}">Asosiy sahifa</a></li>
+                            <li class="main_nav_item"><a href="{% url 'darslar' %}">Darslar</a></li>
+                            <li class="main_nav_item"><a href="">biz haqimizda</a></li>
+
+
+                            {% comment %} <li class="main_nav_item"><a href="{% url 'Darslar' %}">Darslar</a></li> {% endcomment %}
+                            <li class="main_nav_item"><a href="">Aloqa</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="header_side d-flex flex-row justify-content-center align-items-center">
+                <img src="{% static 'images/phone-call.png' %}" alt="">
+                <span>+998 91 161 11 30</span>
+            </div>
+
+            <!-- Hamburger -->
+            <div class="hamburger_container">
+                <i class="fas fa-bars trans_200"></i>
+            </div>
+
+        </header>
+
+        <!-- Menu -->
+        <div class="menu_container menu_mm">
+
+            <!-- Menu Close Button -->
+            <div class="menu_close_container">
+                <div class="menu_close"></div>
+            </div>
+
+            <!-- Menu Items -->
+            <div class="menu_inner menu_mm">
+                <div class="menu menu_mm">
+                    <ul class="menu_list menu_mm">
+                        <li class="menu_item menu_mm"><a href="{% url 'index' %}">Asosiy sahifa</a></li>
+                        <li class="menu_item menu_mm"><a href="{% url 'bizhaqimizda' %}">Biz haqimizda</a></li>
+
+
+                        <li class="menu_item menu_mm"><a href="{% url 'darslar' %}">Darslar</a></li>
+                        <li class="menu_item menu_mm"><a href="{% url 'aloqa' %}">Aloqa</a></li>
+                    </ul>
+
+                    <!-- Menu Social -->
+
+                    <div class="menu_social_container menu_mm">
+                        <ul class="menu_social menu_mm">
+                            <li class="menu_social_item menu_mm"><a href="https://github.com/cod1ng-now"><img src="data:image/png;base64,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"></i></a></li>
+                            <li class="menu_social_item menu_mm"><a href=""><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE20lEQVR4nO2aWWicVRTHf4lpM9EmbdJNRdCCD9qIiiK+uIFbo9SkLaKtFRdcI9aYuiCCFlGEVhHEgm8+qKiPVmsXRO1LJNhU2qq1jVbcimAVwSWtqf3kwv/CYTrzfffeyWSq9A8fM8w959z1nPs/5xs4hv8vuoA+YA2wHvgS+BU4qMd936U2J9MLdHKUoATcDGwG/gGyyOcQsAlYDrQ2YgJtwEpgX9mgPgSeApYAZwBzNEAnfzLQDSwCngU+AP42+j8Cg1qcScG1wNdmADuBO4CZCbZmAfcBI8beV0APdYRbqZdNh58D1wBNE2C7ST6zw9hfW4/dOdGs2piO1ZSJ7gRoBh5RcHB9fQLMnSjj87TdzvBe4Hzqj3OBPepzVGOoeSf8JEZ0picLc8wpGK1lZ0rG0DAwg8lHBzBkjlmSz3jH/lar0yjMMlHypZQQ66PHJTQeZwN/aTwLQpXayu6J5zk68Jjxl6Aj9pAUvgHG9ZxD4zEF2K6xDRQJlwztcDTjBX0fUowP7fAG4A1gN/BnAgfLCp4firjZcglu123bISX3250Bk1hcdizr+SzLG8hmCfWb367Xb78As6voNcmXMrMQK4D5wAl6HGF8oIyGrCIed0l3Q14+cUg+UR5uN0r5lSq6a9R+ALi74Bi6tnslm4kJx6BLFMaNc3olgT4ZdlS8HKeLYx0GLi5r6zWTuDRiQJdJx9m8PG4ufKQ+r6vU+FzBCj2h9s8MYZyqCzPTTsSi33C4lgi9VdJbXalxvYlWldCqKORkHtVvS4xPhEY1i+OUz2RKCULhT887lRo923ROWQ1XSOYP4FSF2EyOnYoB2Xg9Qme+dFxd4AjsV+NJBUb84N+WoUyGU9FtdjUUM6Xzc6VGn8wUXf9uor9J9rA+20lHu2w4m6GYagJM1YmEZH73l11O00hHp2w4BhCK1ryJ+KPVGeikW81Eajla55miQwy1r3q0vLOfGWjsAlPLcjd2KlbKxpsJflXR2d9V48IIg2ulsyMx/DaZgOGIZigWSWdd3oUYw39c+vuT9BztiMXDJguNqcrkXoj+knk/cjC9OmIHRDtCcbX4kuvzlsg+t+Sdnk6RxoMJhYbHTRTpVzCohmb5xbgpKjQnksaOakKbZPz2uHkcQeN36sbuVmhuUxB5UKlqZu6hiyL7uke67+UJ3SQhVwZKQZ8hkSFPTKTyC7ZNukvJQUlVcSd4JWlwTnujBrlX1Y/fgS+A1+SgmdICx9dSqjvfh7yGGJTwp4khtWhFfcHt6UjdFlN8CCKpJVMmLaxWRGKZ7O5LoDWD0t0d81Kox/CfPFofg+OB72T31oSi9ph0r4rt2N/aowp5tcJnmFsjj+xsE+leTOm4pBjvDHxcI1U/RclYpZw/D9NUQM/0mfyeca5ZjaEaXiu8KhtvRe7EsPT2TEQhfZ6ZzKgKyjG4UDvhzvhpET4xaiYRqhe0M/6YjemGbokMt88EyLcoOnnHHq7HK42SCQA+x+6JCLftBRN2l52/J7xj1/Xd+4IyvrRNNa0ZOeH2tiq2usSdPO3IdJSiQ2wtuzNgCtyZXv5vUa6w2OQ3I5J3lY+z1PakZH2dwNOOFY36B0Srjs8GpQBZ5DOuwuDSRk2gEqYr0VmtCuAuFTT8n2r2iziuk8zCvHziGPiP41+EO9xUuKE/IgAAAABJRU5ErkJggg=="></i></a></li>
+                            <li class="menu_social_item menu_mm"><a href="https://instagram.com/_axmedov.m_"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADK0lEQVR4nO2ZO09UQRTHfwUqRB67lksrgrEQBTsfsZOYqHwCQlS+gApS+2iNhFKDX0AxsZLFZ6f2Itio2AoKCBWuOcn/JhMDu3Mfu3NN9p9McrP3nHPn7Jz3QBNN5AK9wAQwDywAG0Alo2WyTGYZGAcO1UOBQeBFhpv2XfPAQBYK7AGmgT8S/AN4AFzQ6ewnO5gsk3kReKhvVfTtKaAlqeAi8FLCfgO3gE4ah07gNrDpnE4hyUlEpvRdphUKR4Ev2ssbYG8c5mkxfgNKhEcJWNae7vsyDcouzZyOkR8cl5lt67kmIpMyn8gb7mhvFqKroteJTo107Ajn5ZNmRkM7vO8CVrTHnmqCJkRk4S8Elp0cYv65E2b0/kY1QWURWSzPqyLDej9XTdCiiNKUB5Z/RoGnwCeVHht6ntU7o9kJQ1LGlDhXw/xN3q5YE1FHAgXagEngp0fpsQrcBFoTfKdDMmyvuyL6UJI4/8Hhfw5cccoYW336bc6he58wT1Vq7TOJIiWZQnTcJz14TjlmnCTpVrJWpM05iVcxayHzk9fifRfTzCpZKzIp+oUkBZ2UiU7GQn8QRYqOY/uY02444wSAYghFRh3HTosof42EUGRWtJdJj6uS9TiEIpFtW4hNiz6fJFcvRdZF2056tEvW+v+uSKdk/fKkb5pWNWe3siMtxkI6+6hPOe2J+ZDht6gkZvSnSY6zTkIshC5RFmNkZRfGs+TT8dVbkVaV4hUVgHGUOQC8zUvR+G8Zv6TaycecPuepjI9Q0r8a8ZcViQ4rz7Trecxx7Ogk6tJYraVodVtViq96trp2dbCvXq3uYgbDh4LC6BP1KetaC/ptJGHvEmv4EHoc5INhn/ZhPPCAzgePtMdreR6Z1oL3yBQnqtglS95wN05XOqBrhU3f8X2DMAhs6Vqh35dpSprb+LKb8Oh25sL34jC2OCZmY/4ThEM/8NVJtLEvRQuOMpu6ZDFnaxS65BNbTruQOP+06M5uW8JWdD9xSQODLNrcCCarT3lixolO2zKnxNfTLo4AzzxKj6xXuV4Bp0d9w5xTfmS1aZP1UaH1OnCwHgo00QTx8Bf0wax6bwlEYQAAAABJRU5ErkJggg=="></a></li>
+                            <li class="menu_social_item menu_mm"><a href="https://t.me/cod1ng_now"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFDklEQVR4nO2aa4hVVRTHfz7nqpHeUTMMIwuEMmqIIAsqMijtQWoEWhb0ognKZIroQ+8iYgoKaUD60qeeRlCNifYULDIbS7FsmqSgVLKXRI1OmjcW/Q8szpzHPvdp4R8O3Dl77bXXPmfttf5rnYEj+P+iHVgAPAGsBr4CfgWGdNnv7RozmSuAMocJSsC1wDrgb6BS8DoIrAWWAm2t2MA44E5glzNqP/AecJ/ezMl64mN0lXXPxu4H3tecaP5OoEsPpym4FNjhDNgE3ARMrELXJOBm4FOn7xtgPg2EPamVbsE+4KI66p8HfOb09zTi7Rwrw22BP4HbgVH1XoR/dd4BDLq3Pa1eymfqdVcUdU6l8TgN6NeaA7KhJkx1Cj8BptA8lIENWnuHvKIqlJw7fQRMoPmYAHzs3KyqM7PSuZMlu1ZhsvMKCwCFQ2x0sJtxJkLOzKBssugWnOyiPGHR6XDBcnf4g1zsLpcnGhFi/QO7HugVQ9gDrAKOT5EfDXwu22xTmSg52lHPZOdxokjjLyn8awAYnzJ3vmR+yONmS12EqCdGyojeGLm0iHQDMAM4SYHF7i9M0TPCRdKrsxZcJyHjTvXAJBHBAWf8PuA54MwE+WckY9k9DbdIZk2aQLto9f4qCaDH6cCzinrRBr4F7lY4TcNLkjXPyEqUVt8cSLNzoZS8W6XxRtWvAt6O+fwG3bfDmoc+zTkrR2695C5PGnxSg1ZPFMF04KFYbbIXeBqYVVDXXs3PemuGByXXnTS4WoNWgobgPOBl4C+3ga3y4TQ6cxzwJnBJwtgx0mElcR4i7zFdw/C1Bq2KS8N4GbrVGW8beQU4P2fx64DfgMdTxs9x5DQPsyVrfYFh+Dnntd7oZOzaLZcy18qCsdbXNeeRnI1WgBcCNjJFsj8lDQ5pcGzC2G2x0nZxilwci93m886ebdLkHg7Q2+b6BIU28qPLL5aUQuqYVW7z9wTMeVGy9mZq2kiWa0XRZG7AIovcxg8pIYYgakCcXatrZR32HmeYuda9otbxqPO8ewuHCrDnUS55lms97L0Z4deS3WPA77Fk9x3wBvBBrEdl162EY5bm7AqUj8KvrZ2aEK15lkW9LxP92B0z3CjDF/r9IcVwpea9EyifmRAXaNA6gKGM9hTRhAvkWnMczS7S140MWxEon0lRyo40GmutBiN1hqKO4bmB817VnM4A2XZHGo9OE1orhdbGrBYzHPmz2uMpuWQWoubCnAD9nZJ9K0voGglZKKwFY5T1Ix7WLwqShHHyBHvCeRu2HLZZOpfklbo7JXgxteMMx8sOKqDEjZ2rcavHQ7s734d8huiS8OY6NR+MKTyqJx71yS5046/pvslkweqZLZJdFrJwyfV6s0rOorDSdpsL19sUIe33HwEt0S7npsEfhaJuxWBCBq8FbTJoT6yGTwyjDh2Sq6q70+OeQF7FVo27dSi5Tg8goAMF88wwF9vk2jataGIfBWyUDRtr+c44VcQsqtzs72ahXVQnSq41f/CZ6V5tv1o9jUaHW9NY+Qn1UjzNudmgeq8h7Z2iGK1gsM+5k3G4uqLkAkCUwOr19XWEkt0Wp39Fo7+9z4u1QPvUWSlXeQ46He2oyJUa1UBPfDvLRdcjA4ZErx9Q4TNbYXusrsn6aLRIMutdnyCiHcta9R8QbeqKrxGXqhS8DqgxuKRVG0jCRGXobnUAt6uhEf1Tjf3+UuVpt2RT64kj4D+OfwCLtMHzJe+iQgAAAABJRU5ErkJggg=="></i></a></li>
+                            {% comment %} <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-twitter"></i></a></li> {% endcomment %}
+                        </ul>
+                    </div>
+
+                    <div class="menu_copyright menu_mm"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+{% block content %}
+{% endblock content %}
+
+
+
+        <!-- Footer -->
+
+        <footer class="footer">
+            <div class="container">
+
+                <!-- Newsletter -->
+
+
+
+
+                <!-- Footer Content -->
+
+                <div class="footer_content">
+                    <div class="row">
+
+                        <!-- Footer Column - About -->
+                        <div class="col-lg-3 footer_col">
+
+                            <!-- Logo -->
+                            <div class="logo_container">
+                                <div class="logo">
+                                    <img src="{% static 'images/logo.png' %}" alt="">
+                                    <span>LIDERLAR</span>
+                                </div>
+                            </div>
+
+                            <p class="footer_about_text">In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum, tempor lacus.</p>
+
+                        </div>
+
+                        <!-- Footer Column - Menu -->
+
+                        <div class="col-lg-3 footer_col">
+                            <div class="footer_column_title">Menu</div>
+                            <div class="footer_column_content">
+                                <ul>
+                                    <li class="footer_list_item"><a href="{% url 'index' %}">Asosiy sahifa</a></li>
+                                    <li class="footer_list_item"><a href="{% url 'bizhaqimizda' %}">Biz haqimizda</a></li>
+                                    <li class="footer_list_item"><a href="{% url 'darslar' %}">Darslar</a></li>
+                                    <li class="footer_list_item"><a href="">Aloqa</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Footer Column - Usefull Links -->
+
+
+
+                        <!-- Footer Column - Contact -->
+
+                        <div class="col-lg-3 footer_col">
+                            <div class="footer_column_title">Aloqa</div>
+                            <div class="footer_column_content">
+                                <ul>
+                                    <li class="footer_contact_item">
+                                        <div class="footer_contact_icon">
+                                            <img src="{% static 'images/pin.png' %}" alt="https://www.flaticon.com/authors/lucy-g">
+                                        </div>
+                                        Andijon Shahar Bobosadin-117
+                                    </li>
+                                    <li class="footer_contact_item">
+                                        <div class="footer_contact_icon">
+                                            <img src="{% static 'images/telephone.png' %}" alt="https://www.flaticon.com/authors/lucy-g">
+                                        </div>
+                                        +998 91 161 11 30
+                                    </li>
+                                    <li class="footer_contact_item">
+                                        <div class="footer_contact_icon">
+                                            <img src="{% static 'images/email.png' %}" alt="https://www.flaticon.com/authors/lucy-g">
+                                        </div>
+                                        cod1ng_now@bk.ru
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Footer Copyright -->
+
+                <style>
+                    #a {
+                        color: #ffffff;
+                    }
+                </style>
+
+                <div class="footer_bar d-flex flex-column flex-sm-row align-items-center">
+                    <div class="footer_copyright">
+                        <span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+ &copy;<script>document.write(new Date().getFullYear());</script><h2>Ushbu web sayt <i  aria-hidden="true"></i>  <a href="https://T.me/cod1ng_now" target="_blank">Muhammadrasul axmedov</a>   </script>tomonidan yasalgan! <i  aria-hidden="true"></i></h2>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </footer>
+
+    </div>
+
+    
+</body>
+
+</html>
+
+
+
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
+<script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/scrollTo/jquery.scrollTo.min.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'js/custom.js'%}"></script>
+
+</html>

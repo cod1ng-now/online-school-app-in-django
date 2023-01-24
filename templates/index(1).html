@@ -1,0 +1,241 @@
+ {% extends 'base.html'%} {% load static %} {% block content %}
+
+
+        <!-- Home -->
+
+        <div class="home">
+
+            <!-- Hero Slider -->
+            <div class="hero_slider_container">
+                <div class="hero_slider owl-carousel">
+
+                    <!-- Hero Slide -->
+                    <div class="hero_slide">
+                        <div class="hero_slide_background" style="background-image:url({% static 'images/slider_background.jpg' %})"></div>
+                        <div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
+                            <div class="hero_slide_content text-center">
+                                <h1 data-animation-in="fadeInLeft" data-animation-out="animate-out fadeOut">Ta'limni <span>bugundan</span> boshla!</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Slide -->
+                    <div class="hero_slide">
+                        <div class="hero_slide_background" style="background-image:url({% static 'images/slider_background.jpg' %})"></div>
+                        <div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
+                            <div class="hero_slide_content text-center">
+                                <h1 data-animation-in="fadeInRight" data-animation-out="animate-out fadeOut">Ta'limni <span>bugundan</span> boshla!</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Slide -->
+                    <div class="hero_slide">
+                        <div class="hero_slide_background" style="background-image:url({% static 'images/slider_background.jpg' %})"></div>
+                        <div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
+                            <div class="hero_slide_content text-center">
+                                <h1 data-animation-in="fadeInDown" data-animation-out="animate-out fadeOut">Ta'limni <span>bugundan</span> boshla!</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="hero_slider_left hero_slider_nav trans_200"><span class="trans_200">oldingi</span></div>
+                <div class="hero_slider_right hero_slider_nav trans_200"><span class="trans_200">keyingi</span></div>
+            </div>
+
+        </div>
+
+        <div class="hero_boxes">
+            <div class="hero_boxes_inner">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-4 hero_box_col">
+                            <div class="hero_box d-flex flex-row align-items-center justify-content-start">
+                                <img src="{% static 'images/earth-globe.svg' %}" class="svg" alt="">
+                                <div class="hero_box_content">
+                                    <h2 class="hero_box_title">Eng so'ngi Darslar</h2>
+                                    {% comment %} <a href="{% url 'Darslar' %}" class="hero_box_link">ko'rish</a> {% endcomment %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 hero_box_col">
+                            <div class="hero_box d-flex flex-row align-items-center justify-content-start">
+                                <img src="{% static 'images/books.svg' %}" class="svg" alt="">
+                                <div class="hero_box_content">
+                                    <h2 class="hero_box_title">Bizning maktab oqituvchilar</h2>
+                                    <a href="#" class="hero_box_link">ko'rish</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="col-lg-4 hero_box_col">
+                            <div class="hero_box d-flex flex-row align-items-center justify-content-start">
+                                <img src="{% static 'images/professor.svg' %}" class="svg" alt="">
+                                <div class="hero_box_content">
+                                    <h2 class="hero_box_title">Bizning maktabgacha ta'lim tarbiyachilari</h2>
+                                    <a href="" class="hero_box_link">ko'rish</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popular -->
+
+        <div class="popular page_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="section_title text-center">
+                            <h1>Eng so'ngi Darslar</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row course_boxes">
+                    {%for playlist in playlistlar %}
+                    <!-- Popular Course Item -->
+                    <div class="col-lg-4 course_box">
+                        <div class="card">
+                            <img class="card-img-top" src="{{playlist.image.url}}" alt="https://unsplash.com/@kellybrito">
+                            <div class="card-body text-center">
+                                <div class="card-title"><a href="{% url 'playlist-detail'  playlist.id %}">{{playlist.nomi}}</a></div>
+                                <br> {{playlist.sana}}<br><br>
+                                <div class="card-text">{{ playlist.izox|truncatechars:"50"}}</div>
+                            </div>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Register -->
+
+        <!-- Services -->
+
+
+        <!-- Testimonials -->
+
+        <div class="testimonials page_section">
+            <!-- <div class="testimonials_background" style="background-image:url(images/testimonials_background.jpg)"></div> -->
+            <div class="testimonials_background_container prlx_parent">
+                <div class="testimonials_background prlx" style="background-image:url({% static 'images/beti.jpg' %})"></div>
+            </div>
+            <div class="container">
+
+                <div class="row">
+                    <div class="col">
+                        <div class="section_title text-center">
+                            <h1>Faol o'quvchilar</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+
+                        <div class="testimonials_slider_container">
+
+                            <!-- Testimonials Slider -->
+                            <div class="owl-carousel owl-theme testimonials_slider">
+                                {%for oquvchi in oquvchilar %}
+                                <!-- Testimonials Item -->
+                                <div class="owl-item">
+                                    <div class="testimonials_item text-center">
+                                        <div class="quote">“</div>
+
+                                        <p class="testimonials_text">{{ oquvchi.izox}}</p>
+                                        <div class="testimonial_user">
+                                            <div class="testimonial_image mx-auto">
+                                                <img src="{{oquvchi.rasm.url}}" alt="">
+                                            </div>
+                                            <div class="testimonial_name">{{oquvchi.ismi}}</div>
+
+                                            <div class="testimonial_title"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Events -->
+
+        <div class="events page_section">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col">
+                        <div class="section_title text-center">
+                            <h1>TEZ ORADA SODIR BOLADIGAN ISHLAR</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event_items">
+
+                    <!-- Event Item -->
+
+
+
+                    <!-- Event Item -->
+                    {%for reja in rejalar %}
+                    <div class="row event_item">
+                        <div class="col">
+                            <div class="row d-flex flex-row align-items-end">
+
+                                <div class="col-lg-2 order-lg-1 order-2">
+                                    <div class="event_date d-flex flex-column align-items-center justify-content-center">
+                                        <div class="event_day">{{reja.kun}}</div>
+                                        <div class="event_month">{{reja.oy}}</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 order-lg-2 order-3">
+                                    <div class="event_content">
+                                        <div class="event_name"><a class="trans_200" href="{% url 'rejalar' reja.pk %}">{{ reja.nomi }}</a></div>
+                                        <div class="event_location">LIDERLAR MAKTABIDA</div>
+                                        <p>{{ reja.izox|truncatechars:"50" }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 order-lg-3 order-1">
+                                    <div class="event_image">
+                                        <img src="{{reja.rasm.url}}" alt="https://unsplash.com/@claybanks1989">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+                </div>
+
+            </div>
+        </div>
+
+{% endblock content %}

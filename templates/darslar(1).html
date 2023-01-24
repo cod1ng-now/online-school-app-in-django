@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/courses_styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/courses_responsive.css' %}">
+
+
+        <!-- Home -->
+
+        <div class="home">
+            <div class="home_background_container prlx_parent">
+                <div class="home_background prlx" style="background-image:url({% static 'images/courses_background.jpg' %})"></div>
+            </div>
+            <div class="home_content">
+                <h1>Darslar</h1>
+            </div>
+        </div>
+
+        <!-- Popular -->
+
+        <div class="popular page_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="section_title text-center">
+                            <h1>Eg so'ngi Darslar</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row course_boxes">
+
+
+
+                    <!-- Popular Course Item -->
+                    {% for playlist in playlistlar %}
+                    <div class="col-lg-4 course_box">
+                        <div class="card">
+                            <img class="card-img-top" src="{{playlist.image.url}}" alt="https://unsplash.com/@dsmacinnes">
+                            <div class="card-body text-center">
+
+                                <div class="card-title"><a href="{% url 'playlist-detail'  playlist.id %}">{{ playlist.nomi}}</a></div>
+                                <br>
+                                <div class="card-text">{{playlist.sana}}</div><br>
+                                <div class="card-text">{{playlist.izox|truncatechars:"50"}}</div>
+                            </div>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+    <script src="{% static 'plugins/easing/easing.js' %}"></script>
+    <script src="{% static 'js/courses_custom.js' %}"></script>
+
+{% endblock content %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/teachers_styles.css' %}">
+<link rel="icon" href="{% static 'images/lo.png'%}" >
+<link rel="stylesheet" type="text/css" href="{% static 'styles/teachers_responsive.css' %}">
+
+	
+	<!-- Home -->
+
+	<div class="home">
+		<div class="home_background_container prlx_parent">
+			<div class="home_background prlx" style="background-image:url({% static 'images/teachers_background.jpg' %})"></div>
+		</div>
+		<div class="home_content">
+			<h1>Maktab<br><br>O'qituvchilar</h1>
+		</div>
+	</div>
+
+	<!-- Teachers -->
+
+	<div class="teachers page_section">
+		<div class="container">
+			<div class="row">
+				<style>
+					#maktaboqituvchi{
+						color: black;
+					}
+				</style>
+				<!-- Teacher -->
+				{% for maktaboqituvchi in maktaboqituvchilar%}
+				<div class="col-lg-4 teacher">
+					<div class="card">
+						<div class="card_img">
+							<div class=""><a></a></div>
+							<img class="card-img-top trans_200" src="images/smartphone.svg" alt="https://unsplash.com/@michaeldam">
+						</div>
+						<div class="card-body text-center">
+							<div class="card-title"><a id="maktaboqituvchi">dfgbbadfgadf asdr as gasdfg</a></div>
+							<div class="card-text">shgs sre ser gserser g</div>
+							
+							<div class="teacher_social">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				
+			</div>
+		</div>
+	</div>
+
+	
+
+
+
+	<!-- Become -->
+
+	  
+
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'js/teachers_custom.js' %}"></script>
+
+{% endblock content %}
